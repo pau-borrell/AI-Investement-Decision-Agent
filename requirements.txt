@@ -1,0 +1,14 @@
+transformers
+torch
+sentence-transformers
+chromadb
+langchain
+llama-index
+pandas
+numpy
+yfinance
+scikit-learn
+datasets
+accelerate
+peft
+trl
