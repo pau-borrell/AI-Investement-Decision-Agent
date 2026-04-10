@@ -52,3 +52,18 @@ Sentence Transformers (embeddings)
 HuggingFace Transformers  
 PEFT / LoRA fine-tuning  
 yfinance (market data)
+
+## Repository Structure
+
+data/ datasets and financial knowledge base
+src/ project source code
+src/agent/ LLM agent implementation
+src/rag/ retrieval pipeline
+src/tools/ portfolio analysis tools
+src/evaluation/ evaluation scripts
+notebooks/ experiments and exploration
+docs/ project documentation
+
+## Goal
+
+The goal of the project is to demonstrate how LLM agents can support personalized financial decision-making through a combination of retrieval, analytical tools, and structured reasoning.
