@@ -1,7 +1,7 @@
 # AI Investment Decision Agent
 
 ## Team Name
-AlphaQuant
+Erasmus
 
 ## Team Members
 Natalia Patallo Suarez  
