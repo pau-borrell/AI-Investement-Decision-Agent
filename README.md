@@ -54,16 +54,116 @@ HuggingFace Transformers
 PEFT / LoRA fine-tuning  
 yfinance (market data)
 
-## Repository Structure
+## Installation and Setup
 
-data/ datasets and financial knowledge base
-src/ project source code
-src/agent/ LLM agent implementation
-src/rag/ retrieval pipeline
-src/tools/ portfolio analysis tools
-src/evaluation/ evaluation scripts
-notebooks/ experiments and exploration
-docs/ project documentation
+Clone the repository:
+
+```bash
+git clone https://github.com/pau-borrell/AI-Investment-Decision-Agent
+cd AI-Investment-Decision-Agent
+```
+
+Create a virtual environment (recommended):
+
+```bash
+python -m venv .venv
+```
+
+Activate the environment:
+
+Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+Mac/Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Running the Project
+
+### 1. Build the RAG Vector Database
+
+This step processes the financial knowledge files, creates embeddings, and stores them in ChromaDB.
+
+```bash
+python -m src.rag.build_index
+```
+
+You should see output indicating:
+
+* documents loaded
+* chunks created
+* embeddings generated
+* database stored successfully
+
+---
+
+### 2. Start the Language Model (Ollama)
+
+Make sure Ollama is installed and running locally.
+
+Start the model:
+
+```bash
+ollama run mistral
+```
+
+Leave this running in the background.
+
+---
+
+### 3. Run the Investment Agent
+
+```bash
+python -m src.agent.run_agent
+```
+
+---
+
+## Example Usage
+
+Enter your portfolio:
+
+```text
+Holding: AAPL 3000
+Holding: SPY 5000
+Holding: done
+```
+
+Then enter your question:
+
+```text
+Question: Should I buy Nvidia if I already own a lot of technology stocks?
+```
+
+---
+
+## Expected Output
+
+The agent will return:
+
+* Recommendation (Buy / Do Not Buy / Neutral)
+* Justification based on retrieved knowledge
+* Portfolio impact analysis
+* Uncertainty explanation
+
+It will also display:
+
+* Retrieved knowledge sources
+* Portfolio analysis results
+
 
 ## Repository
 
