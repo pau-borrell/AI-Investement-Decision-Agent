@@ -12,7 +12,8 @@ def decide_tools(query: str) -> dict:
             "exposure",
             "buy",
             "etf",
-            "stock"
+            "stock",
+            "sell"
         ]
     )
 
