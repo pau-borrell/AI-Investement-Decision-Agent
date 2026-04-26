@@ -3,6 +3,7 @@ from pathlib import Path
 import chromadb
 
 from src.rag.embeddings import load_embedding_model
+from src.rag.embeddings import embed_texts
 
 
 CHROMA_PATH = Path("data/chroma_db")
@@ -17,8 +18,7 @@ def get_collection(path: Path = CHROMA_PATH, collection_name: str = COLLECTION_N
 
 
 def retrieve_relevant_chunks(query: str, top_k: int = TOP_K) -> list[dict]:
-    model = load_embedding_model()
-    query_embedding = model.encode([query], convert_to_numpy=True)[0].tolist()
+    query_embedding = embed_texts([query])[0]
 
     collection = get_collection()
 
