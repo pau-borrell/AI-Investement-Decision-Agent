@@ -89,7 +89,6 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
----
 
 ## Running the Project
 
@@ -108,7 +107,6 @@ You should see output indicating:
 * embeddings generated
 * database stored successfully
 
----
 
 ### 2. Start the Language Model (Ollama)
 
@@ -130,8 +128,6 @@ Leave this running in the background.
 python -m src.agent.run_agent
 ```
 
----
-
 ## Example Usage
 
 Enter your portfolio:
@@ -147,8 +143,6 @@ Then enter your question:
 ```text
 Question: Should I buy Nvidia if I already own a lot of technology stocks?
 ```
-
----
 
 ## Expected Output
 
