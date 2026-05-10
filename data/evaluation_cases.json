@@ -1,0 +1,37 @@
+[
+  {
+    "id": "case_tech_concentration",
+    "query": "Should I buy Nvidia if my portfolio is already heavy in technology stocks?",
+    "portfolio": {
+      "AAPL": 0.45,
+      "MSFT": 0.35,
+      "SPY": 0.20
+    },
+    "expected_decision": null,
+    "notes": "Tech-heavy portfolio; check concentration and sector exposure reasoning."
+  },
+  {
+    "id": "case_diversification_etf",
+    "query": "Should I buy an S&P 500 ETF to improve diversification?",
+    "portfolio": {
+      "TSLA": 0.30,
+      "NVDA": 0.25,
+      "AMZN": 0.25,
+      "CASH": 0.20
+    },
+    "expected_decision": null,
+    "notes": "Single-stock concentration; expect diversification discussion."
+  },
+  {
+    "id": "case_sector_balance",
+    "query": "Would adding a healthcare ETF help reduce sector risk in my portfolio?",
+    "portfolio": {
+      "XLF": 0.40,
+      "JPM": 0.20,
+      "BAC": 0.20,
+      "SPY": 0.20
+    },
+    "expected_decision": null,
+    "notes": "Finance exposure; check sector overexposure handling."
+  }
+]

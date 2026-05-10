@@ -194,8 +194,16 @@ Download the `mistral7b-merged` folder.
 ```bash
 git clone https://github.com/ggerganov/llama.cpp
 cd llama.cpp
-python -m pip install -r requirements.txtn
-python convert_hf_to_gguf.py ..\mistral7b-merged --outfile ..\mistral7b-merged.gguf --outtype q4_0
+python -m pip install -r requirements.txt
+python convert_hf_to_gguf.py ..\mistral7b-merged --outfile ..\mistral7b-merged.gguf
+
+# Quantize (required in newer llama.cpp versions)
+cmake -S . -B build
+cmake --build build --config Release
+build\bin\quantize ..\mistral7b-merged.gguf ..\mistral7b-merged-q4_0.gguf q4_0
+
+# Linux/macOS
+# ./build/bin/quantize ../mistral7b-merged.gguf ../mistral7b-merged-q4_0.gguf q4_0
 ```
 
 ### 3. Create an Ollama Model

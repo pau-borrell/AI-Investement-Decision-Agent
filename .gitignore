@@ -4,5 +4,6 @@ __pycache__/
 data/chroma_db/
 data/finetune/
 models/
+outputs/
 *.gguf
 *.safetensors
