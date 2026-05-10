@@ -108,9 +108,9 @@ You should see output indicating:
 * database stored successfully
 
 
-### 2. Start the Language Model (Ollama)
+### 2. Start the Language Model
 
-Make sure Ollama is installed and running locally.
+By default, the project uses Ollama. Make sure Ollama is installed and running locally.
 
 Start the model:
 
@@ -120,11 +120,99 @@ ollama run mistral
 
 Leave this running in the background.
 
+If you want to use a fine-tuned HuggingFace + LoRA adapter instead of Ollama, set:
+
+```bash
+set SLM_BACKEND=hf
+set HF_BASE_MODEL_PATH=C:\path\to\mistral-7b-instruct
+set HF_LORA_ADAPTER_PATH=C:\path\to\AI-Investment-Decision-Agent\models\mistral7b-lora
+```
+
+Then run the agent as usual. This runs locally and can be slow on CPU.
+
 
 ### 3. Run the Investment Agent
 
 ```bash
 python -m src.agent.run_agent
+```
+
+## Fine-Tune the SLM (LoRA)
+
+Generate a synthetic dataset:
+
+```bash
+python scripts/generate_synthetic_finetune_data.py --train-size 2000 --val-size 200
+```
+
+Then follow the Kaggle workflow in:
+
+* docs/kaggle_finetune_notebook.md
+
+When training finishes, download the adapter folder and place it at:
+
+* models/mistral7b-lora
+
+Finally, set the HF environment variables shown above and run the agent.
+
+## Use the LoRA Model in Ollama (Merge + GGUF)
+
+Ollama only runs GGUF models. To use the fine-tuned LoRA in Ollama, first merge the
+adapter into the base model on a GPU machine, then convert to GGUF.
+
+### 1. Merge LoRA into Base (GPU)
+
+On Kaggle or another GPU machine, upload:
+
+* Base Mistral model folder (HF format)
+* LoRA adapter folder (models/mistral7b-lora)
+
+Then run:
+
+```python
+import torch
+from peft import PeftModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+BASE = "/kaggle/input/your-base-model-folder"
+ADAPTER = "/kaggle/input/your-adapter-folder"
+OUT = "mistral7b-merged"
+
+tokenizer = AutoTokenizer.from_pretrained(BASE, use_fast=True)
+model = AutoModelForCausalLM.from_pretrained(BASE, torch_dtype=torch.float16, device_map="auto")
+model = PeftModel.from_pretrained(model, ADAPTER)
+
+model = model.merge_and_unload()
+model.save_pretrained(OUT, safe_serialization=True)
+tokenizer.save_pretrained(OUT)
+```
+
+Download the `mistral7b-merged` folder.
+
+### 2. Convert to GGUF (Local)
+
+```bash
+git clone https://github.com/ggerganov/llama.cpp
+cd llama.cpp
+python -m pip install -r requirements.txtn
+python convert_hf_to_gguf.py ..\mistral7b-merged --outfile ..\mistral7b-merged.gguf --outtype q4_0
+```
+
+### 3. Create an Ollama Model
+
+Create a Modelfile:
+
+```
+FROM ./mistral7b-merged.gguf
+PARAMETER temperature 0.2
+PARAMETER top_p 0.9
+```
+
+Then build and run:
+
+```bash
+ollama create mistral-lora -f Modelfile
+ollama run mistral-lora
 ```
 
 ## Example Usage
