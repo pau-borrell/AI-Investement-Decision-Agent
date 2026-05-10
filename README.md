@@ -223,6 +223,18 @@ ollama create mistral-lora -f Modelfile
 ollama run mistral-lora
 ```
 
+### The fine-tuned model
+
+If you have an Ollama account, you can pull the model so no need to do the fine-tuning yourself:
+
+```bash
+ollama pull baranorbi12/mistral-lora
+ollama run baranorbi12/mistral-lora
+```
+
+Model page:
+https://ollama.com/baranorbi12/mistral-lora
+
 ## Example Usage
 
 Enter your portfolio:
