@@ -80,28 +80,28 @@ python scripts/demo.py --portfolio data/portfolio_demo.json
 ## Results
 
 ### Automated Summary
-Run: 2026-05-10
+Run: 2026-05-12
 
-- Model only: 3/3 structured outputs, avg retrieved = 0.0
-	- Mentions: diversification 3/3, concentration 3/3, sector 3/3
+- Model only: 6/6 structured outputs, avg retrieved = 0.0
+	- Mentions: diversification 6/6, concentration 4/6, sector 4/6
 	- Errors: 0
-- RAG only: 3/3 structured outputs, avg retrieved = 5.0
-	- Mentions: diversification 3/3, concentration 3/3, sector 3/3
+- RAG only: 6/6 structured outputs, avg retrieved = 5.0
+	- Mentions: diversification 6/6, concentration 6/6, sector 6/6
 	- Errors: 0
-- RAG + tools: 3/3 structured outputs, avg retrieved = 5.0
-	- Mentions: diversification 3/3, concentration 2/3, sector 3/3
+- RAG + tools: 6/6 structured outputs, avg retrieved = 5.0
+	- Mentions: diversification 6/6, concentration 6/6, sector 6/6
 	- Errors: 0
 
 ### Qualitative Notes
 - Responses consistently follow the required structure and cite diversification/sector effects.
 - RAG + tools provides portfolio-specific reasoning (weights, sector exposure), which is more grounded than model_only.
-- One RAG + tools case omitted explicit concentration wording despite portfolio analysis, suggesting prompt compliance is good but not perfect.
+- Model-only mode still misses some explicit concentration/sector wording without retrieved context.
 
 ## Demo Notes
 Run command: python scripts/demo.py
 
 Demo highlights:
-- Input: tech-heavy portfolio (AAPL 45%, MSFT 35%, SPY 20%)
-- Output: Recommendation = Neutral
-- Rationale: warns about tech sector overexposure (80%) and concentration risk
+- Input: tech-heavy portfolio with sector overexposure
+- Output: Recommendation is driven by the decision rubric and portfolio risk flags
+- Rationale: highlights diversification, concentration, and sector exposure risks
 - Includes portfolio analysis details and uncertainty statement
