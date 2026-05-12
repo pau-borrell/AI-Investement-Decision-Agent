@@ -33,5 +33,39 @@
     },
     "expected_decision": null,
     "notes": "Finance exposure; check sector overexposure handling."
+  },
+  {
+    "id": "case_do_not_buy_tech",
+    "query": "Should I increase my NVDA position if my portfolio is already dominated by tech?",
+    "portfolio": {
+      "AAPL": 0.50,
+      "MSFT": 0.30,
+      "NVDA": 0.15,
+      "QQQ": 0.05
+    },
+    "expected_decision": null,
+    "notes": "Tech-dominant portfolio with existing NVDA; should push toward Do Not Buy."
+  },
+  {
+    "id": "case_buy_sp500_cash",
+    "query": "Should I buy an S&P 500 ETF to diversify a cash-heavy portfolio?",
+    "portfolio": {
+      "CASH": 0.75,
+      "BND": 0.25
+    },
+    "expected_decision": null,
+    "notes": "Very cash-heavy portfolio; should push toward Buy for diversification."
+  },
+  {
+    "id": "case_buy_healthcare_balance",
+    "query": "Would adding a healthcare ETF help reduce sector risk?",
+    "portfolio": {
+      "XLF": 0.50,
+      "JPM": 0.20,
+      "BAC": 0.20,
+      "CASH": 0.10
+    },
+    "expected_decision": null,
+    "notes": "Finance-heavy portfolio; likely Buy or Leaning Buy for balance."
   }
 ]
