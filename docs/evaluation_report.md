@@ -83,13 +83,13 @@ python scripts/demo.py --portfolio data/portfolio_demo.json
 Run: 2026-05-12
 
 - Model only: 6/6 structured outputs, avg retrieved = 0.0
-	- Mentions: diversification 6/6, concentration 4/6, sector 4/6
+	- Mentions: diversification 6/6, concentration 6/6, sector 6/6
 	- Errors: 0
 - RAG only: 6/6 structured outputs, avg retrieved = 5.0
 	- Mentions: diversification 6/6, concentration 6/6, sector 6/6
 	- Errors: 0
 - RAG + tools: 6/6 structured outputs, avg retrieved = 5.0
-	- Mentions: diversification 6/6, concentration 6/6, sector 6/6
+	- Mentions: diversification 6/6, concentration 5/6, sector 6/6
 	- Errors: 0
 
 ### Qualitative Notes

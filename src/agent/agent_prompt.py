@@ -66,9 +66,9 @@ Do not give guaranteed predictions.
 Do not present this as personalized financial advice.
 
 Decision rubric (pick ONE):
-- Do Not Buy: concentration risk or sector overexposure is flagged, or diversification is Low.
-- Buy: diversification improves meaningfully and concentration/sector risks are not elevated.
-- Neutral: mixed signals without a clear risk or improvement.
+- Do Not Buy: multiple risk flags (concentration + sector overexposure) or very low diversification.
+- Buy: diversification improves meaningfully and there is no more than one mild risk flag.
+- Neutral: mixed signals or unclear improvement.
 
 User question:
 {query}
