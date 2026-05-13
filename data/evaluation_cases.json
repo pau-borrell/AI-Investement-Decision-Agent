@@ -1,0 +1,75 @@
+[
+  {
+    "id": "case_tech_concentration",
+    "query": "Should I buy Nvidia if my portfolio is already heavy in technology stocks?",
+    "portfolio": {
+      "AAPL": 0.45,
+      "MSFT": 0.35,
+      "SPY": 0.20
+    },
+    "expected_decision": null,
+    "notes": "Tech-heavy portfolio; check concentration and sector exposure reasoning."
+  },
+  {
+    "id": "case_diversification_etf",
+    "query": "Should I buy an S&P 500 ETF to improve diversification?",
+    "portfolio": {
+      "TSLA": 0.30,
+      "NVDA": 0.25,
+      "AMZN": 0.25,
+      "CASH": 0.20
+    },
+    "expected_decision": null,
+    "notes": "Single-stock concentration; expect diversification discussion."
+  },
+  {
+    "id": "case_sector_balance",
+    "query": "Would adding a healthcare ETF help reduce sector risk in my portfolio?",
+    "portfolio": {
+      "XLF": 0.40,
+      "JPM": 0.20,
+      "BAC": 0.20,
+      "SPY": 0.20
+    },
+    "expected_decision": null,
+    "notes": "Finance exposure; check sector overexposure handling."
+  },
+  {
+    "id": "case_do_not_buy_tech",
+    "query": "Should I increase my NVDA position if my portfolio is already dominated by tech?",
+    "portfolio": {
+      "AAPL": 0.50,
+      "MSFT": 0.30,
+      "NVDA": 0.15,
+      "QQQ": 0.05
+    },
+    "expected_decision": null,
+    "notes": "Tech-dominant portfolio with existing NVDA; should push toward Do Not Buy."
+  },
+  {
+    "id": "case_buy_sp500_cash",
+    "query": "Should I add an S&P 500 ETF to diversify beyond a few individual stocks?",
+    "portfolio": {
+      "JNJ": 0.20,
+      "XOM": 0.20,
+      "JPM": 0.20,
+      "PG": 0.20,
+      "CAT": 0.20
+    },
+    "expected_decision": null,
+    "notes": "Evenly weighted single stocks; S&P 500 ETF should improve diversification breadth."
+  },
+  {
+    "id": "case_buy_healthcare_balance",
+    "query": "I have no healthcare exposure. Should I add a healthcare ETF to improve diversification?",
+    "portfolio": {
+      "MSFT": 0.20,
+      "XOM": 0.20,
+      "PG": 0.20,
+      "CAT": 0.20,
+      "JPM": 0.20
+    },
+    "expected_decision": null,
+    "notes": "No healthcare exposure and no sector overexposure; should push toward Buy."
+  }
+]

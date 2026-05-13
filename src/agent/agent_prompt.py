@@ -65,6 +65,11 @@ Do not invent facts.
 Do not give guaranteed predictions.
 Do not present this as personalized financial advice.
 
+Decision rubric (pick ONE):
+- Do Not Buy: multiple risk flags (concentration + sector overexposure) or very low diversification.
+- Buy: diversification improves meaningfully and there is no more than one mild risk flag.
+- Neutral: mixed signals or unclear improvement.
+
 User question:
 {query}
 
@@ -74,7 +79,7 @@ Retrieved financial knowledge:
 Portfolio analysis:
 {analysis_text}
 
-Return the answer in exactly this structure:
+Return the answer in exactly this structure and use one of the three labels:
 
 Recommendation: Buy / Do Not Buy / Neutral
 

@@ -2,3 +2,8 @@
 __pycache__/
 *.pyc
 data/chroma_db/
+data/finetune/
+models/
+outputs/
+*.gguf
+*.safetensors
